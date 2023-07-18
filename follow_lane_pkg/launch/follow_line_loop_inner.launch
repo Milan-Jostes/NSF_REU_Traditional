@@ -1,0 +1,28 @@
+<launch>
+  
+  <include file="$(find avt_vimba_camera)/launch/mono_camera.launch">
+      <arg name="ip" value="192.168.0.40"/>
+      <arg name="reverse_x" value="true"/>
+      <arg name="reverse_y" value="true"/>
+  </include>
+  <node pkg="follow_lane_pkg" type="hello_world_camera_2.py" name="follow_lane_pkg" output="screen" />  
+  <!-- Load robot -->
+  <rosparam command="load" file="$(find follow_lane_pkg)/robot/ackermann.yaml" />
+<!--
+  <include file="$(find simple_sim)/launch/simple_sim.launch">
+    <arg name="show_rviz" value="false" />
+    <arg name="show_kb_teleop" value="false" />
+  </include>
+  -->
+<!--<param name="imgtopic_name" type="str" value="/camera/image_raw" />
+
+  <include file="$(find hello_world_camera)/launch/hello_world_camera.launch">
+  </include>
+-->
+  <node name="follow_lane" pkg="follow_lane_pkg" type="follow_line.py" required="true" output="screen">
+    <param name="imgtopic_name" type="str" value="/camera/image_raw" />
+  </node>
+  <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_console" args="-t">
+  </node>
+</launch>
+

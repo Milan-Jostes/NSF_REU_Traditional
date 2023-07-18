@@ -1,0 +1,27 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  ellipse: 13
+  enable_drive: false
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      ellipse: 13
+      enable_drive: false
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      id: 0
+      length: 130
+      medBlur: 3
+      name: Default
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      speed: 2.5
+      state: true
+      thresh: 240
+      type: ''
+    state: []
+  length: 130
+  medBlur: 3
+  speed: 2.5
+  thresh: 240
+state: []
